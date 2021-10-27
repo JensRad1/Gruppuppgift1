@@ -12,12 +12,16 @@ public class Gruppuppgift1 {
 		
 			
 		while (testGameConditions()) {
-		
-		printGame(gameDataTable);
-		
-		addUserPlay(gameDataTable);
-		
-		//addComputerPlay etc
+			
+			printGame(gameDataTable);
+				
+			addUserPlay(gameDataTable);
+			
+			if (testGameConditions())	//kolla efter varje speldrag
+					break;
+			
+			//addComputerPlay etc
+			
 		
 		}
 		
