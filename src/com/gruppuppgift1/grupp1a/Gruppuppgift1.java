@@ -106,6 +106,6 @@ public class Gruppuppgift1 {
 		//ska anropa endOfGame metoden, när detekterar vem som vann eller oavgjort
 		
 		return true;
-	}
+	}  // hej fatina 
 
 }
