@@ -6,6 +6,8 @@ public class Gruppuppgift1 {
 		
 		
 		//Gruppuppgift1, Grupp 1a.
+		
+		//Test
 
 	}
 
