@@ -104,55 +104,55 @@ public class Gruppuppgift1 {
 		// ska anropa endOfGame metoden, nÃ¤r detekterar vem som vann eller oavgjort.
 
 		// för spelare
-		if (gameDataTable[0][0] + gameDataTable[0][1] + gameDataTable[0][2] == 3) {
+		if (gameDataTable[0][0] ==1 && gameDataTable[0][1] ==1 && gameDataTable[0][2] == 1) {
 			System.out.println("You Win!!");
 			n = false;
-		} else if (gameDataTable[1][0] + gameDataTable[1][1] + gameDataTable[1][2] == 3) {
+		} else if (gameDataTable[1][0]==1 && gameDataTable[1][1]==1 && gameDataTable[1][2] == 1) {
 			System.out.println("You Win!!");
 			n = false;
-		} else if (gameDataTable[2][0] + gameDataTable[2][1] + gameDataTable[2][2] == 3) {
+		} else if (gameDataTable[2][0]==1 && gameDataTable[2][1] ==1 && gameDataTable[2][2] == 1) {
 			System.out.println("You Win!!");
 			n = false;
-		} else if (gameDataTable[0][0] + gameDataTable[1][0] + gameDataTable[2][0] == 3) {
+		} else if (gameDataTable[0][0] ==1 && gameDataTable[1][0] ==1 && gameDataTable[2][0] == 1) {
 			System.out.println("You Win!!");
 			n = false;
-		} else if (gameDataTable[0][1] + gameDataTable[1][1] + gameDataTable[2][1] == 3) {
+		} else if (gameDataTable[0][1] ==1 && gameDataTable[1][1] ==1 && gameDataTable[2][1] == 1) {
 			System.out.println("You Win!!");
 			n = false;
-		} else if (gameDataTable[0][2] + gameDataTable[1][2] + gameDataTable[2][2] == 3) {
+		} else if (gameDataTable[0][2] ==1 && gameDataTable[1][2] ==1 && gameDataTable[2][2] == 1) {
 			System.out.println("You Win!!");
 			n = false;
-		} else if (gameDataTable[0][0] + gameDataTable[1][1] + gameDataTable[2][2] == 3) {
+		} else if (gameDataTable[0][0] ==1 && gameDataTable[1][1] ==1 && gameDataTable[2][2] == 1) {
 			System.out.println("You Win!!");
 			n = false;
-		} else if (gameDataTable[0][2] + gameDataTable[1][1] + gameDataTable[2][0] == 3) {
+		} else if (gameDataTable[0][2] ==1 && gameDataTable[1][1] ==1 && gameDataTable[2][0] == 1) {
 			System.out.println("You Win!!");
 			n = false;
 		}
 
 		// för Datorn
-		if (gameDataTable[0][0] + gameDataTable[0][1] + gameDataTable[0][2] == 6) {
+		if (gameDataTable[0][0] ==2 && gameDataTable[0][1] ==2 && gameDataTable[0][2] == 2) {
 			System.out.println("You Lose!!");
 			n = false;
-		} else if (gameDataTable[1][0] + gameDataTable[1][1] + gameDataTable[1][2] == 6) {
+		} else if (gameDataTable[1][0] ==2 && gameDataTable[1][1] ==2 && gameDataTable[1][2] == 2) {
 			System.out.println("You Lose!!");
 			n = false;
-		} else if (gameDataTable[2][0] + gameDataTable[2][1] + gameDataTable[2][2] == 6) {
+		} else if (gameDataTable[2][0] ==2 && gameDataTable[2][1] ==2 && gameDataTable[2][2] == 2) {
 			System.out.println("You Lose!!");
 			n = false;
-		} else if (gameDataTable[0][0] + gameDataTable[1][0] + gameDataTable[2][0] == 6) {
+		} else if (gameDataTable[0][0] ==2 && gameDataTable[1][0] ==2 && gameDataTable[2][0] == 2) {
 			System.out.println("You Lose!!");
 			n = false;
-		} else if (gameDataTable[0][1] + gameDataTable[1][1] + gameDataTable[2][1] == 6) {
+		} else if (gameDataTable[0][1] ==2 && gameDataTable[1][1] ==2 && gameDataTable[2][1] == 2) {
 			System.out.println("You Lose!!");
 			n = false;
-		} else if (gameDataTable[0][2] + gameDataTable[1][2] + gameDataTable[2][2] == 6) {
+		} else if (gameDataTable[0][2] ==2 && gameDataTable[1][2] ==2 && gameDataTable[2][2] == 2) {
 			System.out.println("You Lose!!");
 			n = false;
-		} else if (gameDataTable[0][0] + gameDataTable[1][1] + gameDataTable[2][2] == 6) {
+		} else if (gameDataTable[0][0] ==2 && gameDataTable[1][1] ==2 && gameDataTable[2][2] == 2) {
 			System.out.println("You Lose!!");
 			n = false;
-		} else if (gameDataTable[0][2] + gameDataTable[1][1] + gameDataTable[2][0] == 6) {
+		} else if (gameDataTable[0][2] ==2 && gameDataTable[1][1] ==2 && gameDataTable[2][0] == 2) {
 			System.out.println("You Lose!!");
 			n = false;
 		}
