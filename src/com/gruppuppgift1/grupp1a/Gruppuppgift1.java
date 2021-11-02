@@ -1,14 +1,15 @@
 package com.gruppuppgift1.grupp1a;
 
+import java.util.Random;
 import java.util.Scanner;
 
-public class Gruppuppgift1 {
+public class Gruppuppgift1  {
 
 	public static void main(String[] args) {
 
-		// Gruppuppgift1, Grupp 1a.
+		// Gruppuppgift1, Grupp 1a.		
 
-		int[][] gameDataTable = new int[3][3];
+		int[][] gameDataTable = new int[3][3];		
 
 		while (testGameConditions(gameDataTable)) {
 
@@ -16,33 +17,19 @@ public class Gruppuppgift1 {
 
 			addUserPlay(gameDataTable);
 
-			if (!testGameConditions(gameDataTable)) { // kolla efter varje speldrag
-				printGame(gameDataTable);// s�tt in en visar br�dan sista g�ngen.
-				break;
-			}
-			// addComputerPlay etc
-
+			if (!testGameConditions(gameDataTable))
+				break;			
+			
+			addComputerPlay(gameDataTable);
 		}
-
-		/*
-		 * Mer metoder som behövs:
-		 * 
-		 * addComputerPlay, för datorns speldrag
-		 * 
-		 * testGameConditions, för att testa ställningen vid varje nytt speldrag och
-		 * när bryta loopen, return: true/false
-		 * 
-		 * endOfGame, skriva ut vem som vann, kan metoden testGameConditions anropa den
-		 * innan ger sin boolean retur?
-		 * 
-		 * 
-		 */
+		
+		printGame(gameDataTable);
 
 	}
 
 	static void printGame(int[][] gameDataTable) {
 
-		System.out.println("Spelplan| Radnummer");
+		System.out.println("  Game  | Numbers");
 		for (int i = 0; i < gameDataTable.length; i++) {
 
 			for (int j = 0; j < gameDataTable[i].length; j++) {
@@ -68,111 +55,132 @@ public class Gruppuppgift1 {
 	}
 
 	static void addUserPlay(int[][] gameDataTable) {
-
-		System.out.println("Ange ett radnummer (1-9): ");
-
+		
 		Scanner input = new Scanner(System.in);
-
+		
 		int rowNumber;
-		rowNumber = input.nextInt() - 1;
-		// minus ett eftersom visar radNr som börjar på 1 ist för 0
+		
+		do {
+			System.out.println("Please enter your move (1-9): ");
+			
+			rowNumber = input.nextInt()-1;
 
-		rowNumberToTablePosition(rowNumber, gameDataTable);
-
-		// input.close();
-
-	}
-	
-public static void addUserplayer2 ( int  [][] gameDatable ) {
+			//minus one to get the correct array position
+			
+		} while (testIfOccupied(rowNumber, gameDataTable, true));		
 		
-		Random rnd = new Random();
-		
-		int cpuNumber = rnd.nextInt(9)+1 ;
-		
-		rowNumberToTablePosition(cpuNumber, gameDatable);
-		
-		
-				
-		
-		
+		rowNumberToTablePosition(rowNumber, gameDataTable, 1);			
 		
 	}
 	
-
-	static void rowNumberToTablePosition(int rowNumber, int[][] gameDataTable) {
-
-		// tar emot radnummer och omvandlar till tabellkoordinat
-
-		// X är radnummer/3 (heltalsdiv)
-		// Y är radnummer - (X*3)
-
+	static boolean testIfOccupied(int rowNumber, int[][] gameDataTable, boolean player) {
+		
+		//takes 0-8
+		
 		int x, y;
 
 		x = rowNumber / 3;
 		y = rowNumber - (x * 3);
 
-		gameDataTable[x][y] = 1;
+		if (gameDataTable[x][y] == 0) {
+			//Not Occupied.
+			return false;
+		}
+		else {
+			if (player)
+				System.out.println("Already played. Try Again.");
+			return true;
+		}		
+	}
+	
+
+	static void addComputerPlay(int [][] gameDataTable) {
+
+		Random rnd = new Random();
+		
+		int cpuNumber;
+		
+		do {
+			
+			cpuNumber = rnd.nextInt(9);
+			
+		} while (testIfOccupied(cpuNumber, gameDataTable, false));		
+		
+		rowNumberToTablePosition(cpuNumber, gameDataTable, 2);		
+		
+	}
+	
+	static void rowNumberToTablePosition(int rowNumber, int[][] gameDataTable, int playerType) {
+
+		//takes input number and translates it into array position for the chosen player
+
+		//takes 0-8
+		
+		int x, y;
+
+		x = rowNumber / 3;
+		y = rowNumber - (x * 3);
+
+		gameDataTable[x][y] = playerType;
 	}
 
+	
 	static boolean testGameConditions(int[][] gameDataTable) {
-
-		boolean n = true;
-		// ska anropa endOfGame metoden, när detekterar vem som vann eller oavgjort.
-
-		// f�r spelare
+		
+		//player
 		if (gameDataTable[0][0] ==1 && gameDataTable[0][1] ==1 && gameDataTable[0][2] == 1) {
 			System.out.println("You Win!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[1][0]==1 && gameDataTable[1][1]==1 && gameDataTable[1][2] == 1) {
 			System.out.println("You Win!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[2][0]==1 && gameDataTable[2][1] ==1 && gameDataTable[2][2] == 1) {
 			System.out.println("You Win!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[0][0] ==1 && gameDataTable[1][0] ==1 && gameDataTable[2][0] == 1) {
 			System.out.println("You Win!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[0][1] ==1 && gameDataTable[1][1] ==1 && gameDataTable[2][1] == 1) {
 			System.out.println("You Win!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[0][2] ==1 && gameDataTable[1][2] ==1 && gameDataTable[2][2] == 1) {
 			System.out.println("You Win!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[0][0] ==1 && gameDataTable[1][1] ==1 && gameDataTable[2][2] == 1) {
 			System.out.println("You Win!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[0][2] ==1 && gameDataTable[1][1] ==1 && gameDataTable[2][0] == 1) {
 			System.out.println("You Win!!");
-			n = false;
+			return false;
 		}
 
-		// f�r Datorn
+		//computer
 		if (gameDataTable[0][0] ==2 && gameDataTable[0][1] ==2 && gameDataTable[0][2] == 2) {
 			System.out.println("You Lose!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[1][0] ==2 && gameDataTable[1][1] ==2 && gameDataTable[1][2] == 2) {
 			System.out.println("You Lose!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[2][0] ==2 && gameDataTable[2][1] ==2 && gameDataTable[2][2] == 2) {
 			System.out.println("You Lose!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[0][0] ==2 && gameDataTable[1][0] ==2 && gameDataTable[2][0] == 2) {
 			System.out.println("You Lose!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[0][1] ==2 && gameDataTable[1][1] ==2 && gameDataTable[2][1] == 2) {
 			System.out.println("You Lose!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[0][2] ==2 && gameDataTable[1][2] ==2 && gameDataTable[2][2] == 2) {
 			System.out.println("You Lose!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[0][0] ==2 && gameDataTable[1][1] ==2 && gameDataTable[2][2] == 2) {
 			System.out.println("You Lose!!");
-			n = false;
+			return false;
 		} else if (gameDataTable[0][2] ==2 && gameDataTable[1][1] ==2 && gameDataTable[2][0] == 2) {
 			System.out.println("You Lose!!");
-			n = false;
+			return false;
 		}
-		// kollar om det �r draw
+		//draw
 		else if ((gameDataTable[0][0] == 1 || gameDataTable[0][0] == 2)
 				&& (gameDataTable[0][1] == 1 || gameDataTable[0][1] == 2)
 				&& (gameDataTable[0][2] == 1 || gameDataTable[0][2] == 2)
@@ -183,11 +191,11 @@ public static void addUserplayer2 ( int  [][] gameDatable ) {
 				&& (gameDataTable[2][1] == 1 || gameDataTable[2][1] == 2)
 				&& (gameDataTable[2][2] == 1 || gameDataTable[2][2] == 2)) {
 			System.out.println("Draw!!");
-			n = false;
+			return false;
 		}
 
-		return n;
-
+		return true;
 	}
+	
 
 }
