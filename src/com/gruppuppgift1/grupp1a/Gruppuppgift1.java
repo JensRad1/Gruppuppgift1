@@ -17,7 +17,7 @@ public class Gruppuppgift1 {
 			addUserPlay(gameDataTable);
 
 			if (!testGameConditions(gameDataTable)) { // kolla efter varje speldrag
-				printGame(gameDataTable);// sätt in en visar brädan sista gången.
+				printGame(gameDataTable);// sï¿½tt in en visar brï¿½dan sista gï¿½ngen.
 				break;
 			}
 			// addComputerPlay etc
@@ -103,7 +103,7 @@ public class Gruppuppgift1 {
 		boolean n = true;
 		// ska anropa endOfGame metoden, nÃ¤r detekterar vem som vann eller oavgjort.
 
-		// för spelare
+		// fï¿½r spelare
 		if (gameDataTable[0][0] ==1 && gameDataTable[0][1] ==1 && gameDataTable[0][2] == 1) {
 			System.out.println("You Win!!");
 			n = false;
@@ -130,7 +130,7 @@ public class Gruppuppgift1 {
 			n = false;
 		}
 
-		// för Datorn
+		// fï¿½r Datorn
 		if (gameDataTable[0][0] ==2 && gameDataTable[0][1] ==2 && gameDataTable[0][2] == 2) {
 			System.out.println("You Lose!!");
 			n = false;
@@ -156,7 +156,7 @@ public class Gruppuppgift1 {
 			System.out.println("You Lose!!");
 			n = false;
 		}
-		// kollar om det är draw
+		// kollar om det ï¿½r draw
 		else if ((gameDataTable[0][0] == 1 || gameDataTable[0][0] == 2)
 				&& (gameDataTable[0][1] == 1 || gameDataTable[0][1] == 2)
 				&& (gameDataTable[0][2] == 1 || gameDataTable[0][2] == 2)
