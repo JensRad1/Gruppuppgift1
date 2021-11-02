@@ -82,6 +82,22 @@ public class Gruppuppgift1 {
 		// input.close();
 
 	}
+	
+public static void addUserplayer2 ( int  [][] gameDatable ) {
+		
+		Random rnd = new Random();
+		
+		int cpuNumber = rnd.nextInt(9)+1 ;
+		
+		rowNumberToTablePosition(cpuNumber, gameDatable);
+		
+		
+				
+		
+		
+		
+	}
+	
 
 	static void rowNumberToTablePosition(int rowNumber, int[][] gameDataTable) {
 
